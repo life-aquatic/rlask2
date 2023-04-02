@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="rlask_gui.NumberInput"
+             x:Name="customNumberInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:rlask_gui"
+             mc:Ignorable="d" Height="22" Width="65">
+             
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="txtNum" x:FieldModifier="private" Text="{Binding Path=NumValue, ElementName=customNumberInput}" TextChanged="TxtNum_TextChanged" 
+                 Style="{StaticResource TextStyleTextBox}" Width="40" Height ="22" VerticalAlignment="Center" Padding="2,1"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11"/>
+                <RowDefinition Height="11"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Button x:Name="cmdUp" x:FieldModifier="private" Click="CmdUp_Click" Height="Auto">
+                    <Polygon  Points="2,0 0,3 0,4 2,1 4,4 4,3" Fill="Black" />
+
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button x:Name="cmdDown" x:FieldModifier="private" Click="CmdDown_Click" Height="Auto">
+                    <Polygon Points="2,4 0,1 0,0 2,3 4,0 4,1" Fill="Black" />
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

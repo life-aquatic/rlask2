@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\default.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\rlask_engine\rlask_engine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\default.png" />
+  </ItemGroup>
+
+</Project>

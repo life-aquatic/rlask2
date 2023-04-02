@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rlask_engine", "rlask_engine\rlask_engine.csproj", "{44E8B848-3356-42B3-8633-DD8EEB95A8FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rlask_gui", "rlask_gui\rlask_gui.csproj", "{FC3FEDB5-05AC-4C04-A6CD-DCA57C4D098C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44E8B848-3356-42B3-8633-DD8EEB95A8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E8B848-3356-42B3-8633-DD8EEB95A8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E8B848-3356-42B3-8633-DD8EEB95A8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E8B848-3356-42B3-8633-DD8EEB95A8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3FEDB5-05AC-4C04-A6CD-DCA57C4D098C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3FEDB5-05AC-4C04-A6CD-DCA57C4D098C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3FEDB5-05AC-4C04-A6CD-DCA57C4D098C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3FEDB5-05AC-4C04-A6CD-DCA57C4D098C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0A37717-F72C-4982-92F8-A7D769037DD5}
+	EndGlobalSection
+EndGlobal
