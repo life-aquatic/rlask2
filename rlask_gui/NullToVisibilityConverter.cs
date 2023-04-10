@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace rlask_gui
 {
-
+    // This helper class is used to make "Ei valittu" text disappear, when a customer is selected in combobox AddInvoiceWindow.xaml
     [ValueConversion(typeof(bool), typeof(Visibility))]
     public sealed class NullToVisibilityConverter : IValueConverter
     {

@@ -18,6 +18,10 @@ namespace rlask_gui
     public partial class MainWindow : Window
     {
         private InvoicingService service;
+
+        // When the user switches between "invoices", "customers", and "products" views, the code remembers which 
+        // customer, invoice or product was chosed, so when customer switches back, we display the same object they
+        // vere viewing previously. this information is stored in these 3 fields:
         Guid? currentlySelectedInvoice;
         int? currentlySelectedCustomer;
         Guid? currentlySelectedProduct;
@@ -26,9 +30,9 @@ namespace rlask_gui
         CurrentView currentView;
         
 
-
         public MainWindow()
         {
+            // Creating a CultureInfo object to store "dd.MM.yyy" date representation format
             CultureInfo dateFormatCultureInfo = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
             dateFormatCultureInfo.DateTimeFormat.ShortDatePattern = "dd.MM.yyyy";
             Thread.CurrentThread.CurrentCulture = dateFormatCultureInfo;
@@ -36,6 +40,10 @@ namespace rlask_gui
             service = new InvoicingService();
             InitializeComponent();
         }
+
+        // The main window relies on 3 views: "Customers", "Invoices", and "Products". The buttons to switch betwen the views
+        // are statically defined in xaml, the rest is redrawn dynamically each time a view changes. 
+        // SetCustomersView(), SetInvoicesView() and SetProductsView() are the methods that redraw the UI.
         private void SetCustomersView(object sender, EventArgs e)
         {
             currentView = CurrentView.Customers;
@@ -203,12 +211,10 @@ namespace rlask_gui
                     grdSecondary.Children.Add(new Label() { Content = "Ei lisätietoja", Style = (Style)FindResource("LabelWatermarkStyle") });
                 }
             }
-        
-
     }
 
         
-
+        // Event handlers for the buttons in the main menu, implementing CRUD functionality (except "update", which was not implemented) 
         private void OpenAddInvoiceWindow(object sender, RoutedEventArgs e)
         {
             var addInvoiceWindow = new AddInvoiceWindow(service);

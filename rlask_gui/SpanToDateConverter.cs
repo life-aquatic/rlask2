@@ -4,7 +4,9 @@ using System.Windows.Data;
 
 namespace rlask_gui
 {
-
+    // This helper class is used to convert number of days (int) into datetime and back,
+    // in order to update DatePicker in AddInvoiceWindow.xaml when NumberInput is updated,
+    // and update NumberInput, when DatePicker is updated
     [ValueConversion(typeof(int), typeof(DateTime))]
     public sealed class SpanToDateConerter : IValueConverter
     {

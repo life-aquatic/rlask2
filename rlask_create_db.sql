@@ -38,13 +38,14 @@ CREATE TABLE invoices
 
 CREATE TABLE products
 (
-  product_id INT NOT NULL AUTO_INCREMENT,
+  product_id UUID NOT NULL,
   product_name VARCHAR(255) NOT NULL,
   unit VARCHAR(255) NOT NULL,
   unit_price DECIMAL(15,2) NOT NULL,
   is_material BOOLEAN NOT NULL,
   is_deleted BOOLEAN DEFAULT 0,
   picture BLOB,
+  picture_size INT,
   PRIMARY KEY (product_id)
 );
 
@@ -53,7 +54,7 @@ CREATE TABLE product_details
   product_detail_id INT NOT NULL AUTO_INCREMENT,
   property_name VARCHAR(255) NOT NULL,
   property_value VARCHAR(15382),
-  product_id INT NOT NULL,
+  product_id UUID NOT NULL,
   CONSTRAINT fk_product_details_products_product_id FOREIGN KEY (product_id) REFERENCES products(product_id),
   PRIMARY KEY (product_detail_id)
 );
@@ -62,7 +63,7 @@ CREATE TABLE product_details
 CREATE TABLE invoice_rows
 (
   invoice_row_id INT NOT NULL AUTO_INCREMENT,
-  product_id INT NOT NULL,
+  product_id UUID NOT NULL,
   unit_price DECIMAL(15,2) NOT NULL,
   amount DECIMAL(15,2) NOT NULL,
   invoice_id UUID NOT NULL,
@@ -81,11 +82,8 @@ SELECT i.invoice_id, i.invoice_date, ADDDATE(i.invoice_date,i.days_to_pay) AS du
 FROM invoices i JOIN customers cu ON i.customer_id = cu.customer_id JOIN invoices_total_sum_view t ON i.invoice_id = t.invoice_id;
 
 
-
-
-
 DELIMITER &&  
-CREATE PROCEDURE insert_row_freeze_price (IN invoiceid UUID, productid INT, amount decimal)
+CREATE PROCEDURE insert_row_freeze_price (IN invoiceid UUID, productid UUID, amount decimal)
 BEGIN  
 INSERT INTO invoice_rows (product_id, unit_price, amount, invoice_id) 
 VALUES (productid, (SELECT unit_price FROM products WHERE products.product_id=productid), amount, invoiceid);
@@ -107,7 +105,7 @@ CREATE PROCEDURE get_invoices_text_view_by_customer_id (IN customerid INT)
 BEGIN  
 SELECT i.invoice_id, i.invoice_date, ADDDATE(i.invoice_date,i.days_to_pay) AS due_date, t.total_sum, cu.customer_name, cu.customer_address, i.extra_details
 FROM invoices i JOIN customers cu ON i.customer_id = cu.customer_id JOIN invoices_total_sum_view t ON i.invoice_id = t.invoice_id
-WHERE i.customer_id = customerid;
+WHERE i.customer_id = customerid AND cu.is_deleted = 0;
 END &&  
 DELIMITER ;
 

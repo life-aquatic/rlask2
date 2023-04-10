@@ -5,10 +5,16 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <StartupObject>rlask_gui.App</StartupObject>
+    <ApplicationIcon>file_folders_documents_vector_document_message_align_text_icon_250882.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\default.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="file_folders_documents_vector_document_message_align_text_icon_250882.ico" />
   </ItemGroup>
 
   <ItemGroup>

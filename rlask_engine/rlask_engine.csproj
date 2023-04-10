@@ -1,11 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationIcon>file_folders_documents_vector_document_message_align_text_icon_250882.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="file_folders_documents_vector_document_message_align_text_icon_250882.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MySqlConnector" Version="2.2.5" />

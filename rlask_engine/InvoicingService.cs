@@ -16,6 +16,8 @@ namespace rlask_engine
 {
     public class InvoicingService
     {
+        // This class contains database-related functionality. It relies on MySqlConnector package.
+        // The database connection string is supplied as "$env:ConnectionStringMySql" environment variable.
 
         private string localMySql = Environment.GetEnvironmentVariable("ConnectionStringMySql");
         
